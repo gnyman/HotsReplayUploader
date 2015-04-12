@@ -58,12 +58,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let formattedDate = dateFormatter.stringFromDate(NSDate())
         let resource = "\(bucket)"
         let s3stringToSign = "PUT\n\n\(contentType)\n\(formattedDate)\n/\(bucket)/\(fileUrlEncoded)"
-        println("String to sign:")
-        println(s3stringToSign)
+        //println("String to sign:")
+        //println(s3stringToSign)
         let s3authorizationHeader = s3stringToSign.hmacData(.SHA1, key: s3secret).base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding76CharacterLineLength)
-        println("S3 auth header:", s3authorizationHeader)
-        println(fileUrlEncoded)
-        println(NSURL(string: "https://\(bucket).s3.amazonaws.com/\(fileUrlEncoded)"))
+        //println("S3 auth header:", s3authorizationHeader)
+        //println(fileUrlEncoded)
+        //println(NSURL(string: "https://\(bucket).s3.amazonaws.com/\(fileUrlEncoded)"))
         var request = NSMutableURLRequest(URL: NSURL(string: "https://\(bucket).s3.amazonaws.com/\(fileUrlEncoded)")!)
         request.HTTPMethod = "PUT"
         request.setValue("AWS \(s3accessKey):" + s3authorizationHeader, forHTTPHeaderField: "Authorization")
@@ -72,19 +72,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var nsurlConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
         var session = NSURLSession(configuration: nsurlConfiguration, delegate: nil, delegateQueue: nil)
         
-        println("Request:")
-        println(request);
-        println(request.allHTTPHeaderFields)
+        //println("Request:")
+        //println(request);
+        //println(request.allHTTPHeaderFields)
         
         let fullPath = NSURL.fileURLWithPath(path + "/" + fileName)
         if fullPath == nil {
             return false
         }
-        println("Creating upload task for \(fullPath)")
+        //println("Creating upload task for \(fullPath)")
         var task = session.uploadTaskWithRequest(request, fromFile: fullPath!, completionHandler: {data, response, error in
-            println("Response")
-            println(response);
-            println(NSString(data:data, encoding: NSUTF8StringEncoding));
+            //println("Response")
+            //println(response);
+            //println(NSString(data:data, encoding: NSUTF8StringEncoding));
             
             println("Pinging hotslogs at https://www.hotslogs.com/UploadFile.aspx?FileName=\(fileUrlEncoded)")
             var hotslogPingUrl = NSURL(string: "https://www.hotslogs.com/UploadFile.aspx?FileName=\(fileUrlEncoded)")
@@ -92,14 +92,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             var success = String(contentsOfURL: hotslogPingUrl!, encoding: NSUTF8StringEncoding, error: &pingError)
             if (pingError != nil) {
                 println("Error pinging hotslogs, error was\(pingError?.description)")
+                self.textLog.stringValue = self.textLog.stringValue + "\nFailed to ask hotslogs to process \(fileName), will try again later"
             }
             println("Pinged hotslogs, got back \(success)")
             // Create the upload indicator
             let uploadedIndicator = "\(path)/.hotslogUploaded_\(fileName)"
             NSFileManager.defaultManager().createFileAtPath(uploadedIndicator, contents: nil, attributes: nil)
+            self.textLog.stringValue = self.textLog.stringValue + "\nUploaded \(fileName)"
         });
         task.resume()
-        sleep(15)
         return true
     }
 
