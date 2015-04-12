@@ -154,6 +154,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let path = "\(blizzardAppSuppPath)/\(element)"
             processFile(path)
         }
+        self.textLog.stringValue = self.textLog.stringValue + "\nScanned the replay folder for replays..."
     }
 
 }
