@@ -28,14 +28,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.watchForReplays()
         }
         
-        let s1      =   FileSystemEventMonitor(
-            pathsToWatch: [
-                "~/Documents".stringByExpandingTildeInPath,
-                "~/Temp".stringByExpandingTildeInPath],
-            latency: 1,
-            watchRoot: true,
-            queue: dispatch_get_main_queue()) { (events:[FileSystemEvent])->() in
-                println(events)
         }
         
     }
