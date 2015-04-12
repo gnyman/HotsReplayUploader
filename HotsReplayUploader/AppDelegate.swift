@@ -25,8 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let operationQueue = NSOperationQueue()
         operationQueue.addOperationWithBlock() {
             self.scanForReplays()
+            self.watchForReplays()
         }
-        watchForReplays()
         
         let s1      =   FileSystemEventMonitor(
             pathsToWatch: [
