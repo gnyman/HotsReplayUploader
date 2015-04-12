@@ -28,6 +28,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.watchForReplays()
         }
         
+        // Very basic update code, allows me to pup up a message which opens a static link 
+        // when there is a new version
+        var error : NSError?
+        let updateMessage = String(contentsOfURL: NSURL(string:"https://nyman.re/hotsreplayuploader/update_alpha.txt")!, encoding: NSUTF8StringEncoding, error: &error)
+        if (updateMessage != "") {
+            let updatePopup:NSAlert = NSAlert()
+            updatePopup.addButtonWithTitle("View details and download")
+            updatePopup.addButtonWithTitle("Cancel")
+            updatePopup.messageText = "New update available"
+            updatePopup.informativeText = updateMessage
+            if updatePopup.runModal() == NSAlertFirstButtonReturn {
+                NSWorkspace.sharedWorkspace().openURL(NSURL(string: "https://nyman.re/hotsreplayuploader/update.html")!)
+            }
         }
         
     }
