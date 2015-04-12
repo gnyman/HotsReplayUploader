@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,10 @@
 		C03B275A1ADA5D92002FA5D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03B27591ADA5D92002FA5D6 /* Images.xcassets */; };
 		C03B275D1ADA5D92002FA5D6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C03B275B1ADA5D92002FA5D6 /* MainMenu.xib */; };
 		C03B27691ADA5D92002FA5D6 /* HotsReplayUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B27681ADA5D92002FA5D6 /* HotsReplayUploaderTests.swift */; };
+		C03B27E01ADA6716002FA5D6 /* EonilFileSystemEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03B27DF1ADA6716002FA5D6 /* EonilFileSystemEvents.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C03B27E11ADA6724002FA5D6 /* EonilFileSystemEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B27DF1ADA6716002FA5D6 /* EonilFileSystemEvents.framework */; };
+		C03B27E61ADA6E8B002FA5D6 /* HMACAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B27E31ADA6CE7002FA5D6 /* HMACAlgorithm.swift */; };
+		C03B27E91ADA6F5A002FA5D6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B27E81ADA6F5A002FA5D6 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +27,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C03B27DE1ADA6703002FA5D6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C03B27E01ADA6716002FA5D6 /* EonilFileSystemEvents.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C03B27521ADA5D92002FA5D6 /* HotsReplayUploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotsReplayUploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03B27561ADA5D92002FA5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +50,10 @@
 		C03B27621ADA5D92002FA5D6 /* HotsReplayUploaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotsReplayUploaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03B27671ADA5D92002FA5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C03B27681ADA5D92002FA5D6 /* HotsReplayUploaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsReplayUploaderTests.swift; sourceTree = "<group>"; };
+		C03B27DF1ADA6716002FA5D6 /* EonilFileSystemEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EonilFileSystemEvents.framework; sourceTree = "<group>"; };
+		C03B27E31ADA6CE7002FA5D6 /* HMACAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMACAlgorithm.swift; sourceTree = "<group>"; };
+		C03B27E71ADA6EBB002FA5D6 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		C03B27E81ADA6F5A002FA5D6 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03B27E11ADA6724002FA5D6 /* EonilFileSystemEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +78,7 @@
 		C03B27491ADA5D92002FA5D6 = {
 			isa = PBXGroup;
 			children = (
+				C03B27DF1ADA6716002FA5D6 /* EonilFileSystemEvents.framework */,
 				C03B27541ADA5D92002FA5D6 /* HotsReplayUploader */,
 				C03B27651ADA5D92002FA5D6 /* HotsReplayUploaderTests */,
 				C03B27531ADA5D92002FA5D6 /* Products */,
@@ -73,10 +97,13 @@
 		C03B27541ADA5D92002FA5D6 /* HotsReplayUploader */ = {
 			isa = PBXGroup;
 			children = (
+				C03B27E71ADA6EBB002FA5D6 /* Bridging-Header.h */,
 				C03B27571ADA5D92002FA5D6 /* AppDelegate.swift */,
+				C03B27E81ADA6F5A002FA5D6 /* Config.swift */,
 				C03B27591ADA5D92002FA5D6 /* Images.xcassets */,
 				C03B275B1ADA5D92002FA5D6 /* MainMenu.xib */,
 				C03B27551ADA5D92002FA5D6 /* Supporting Files */,
+				C03B27E31ADA6CE7002FA5D6 /* HMACAlgorithm.swift */,
 			);
 			path = HotsReplayUploader;
 			sourceTree = "<group>";
@@ -116,6 +143,7 @@
 				C03B274E1ADA5D92002FA5D6 /* Sources */,
 				C03B274F1ADA5D92002FA5D6 /* Frameworks */,
 				C03B27501ADA5D92002FA5D6 /* Resources */,
+				C03B27DE1ADA6703002FA5D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,7 +191,7 @@
 				};
 			};
 			buildConfigurationList = C03B274D1ADA5D92002FA5D6 /* Build configuration list for PBXProject "HotsReplayUploader" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -205,7 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03B27E61ADA6E8B002FA5D6 /* HMACAlgorithm.swift in Sources */,
 				C03B27581ADA5D92002FA5D6 /* AppDelegate.swift in Sources */,
+				C03B27E91ADA6F5A002FA5D6 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,9 +354,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HotsReplayUploader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HotsReplayUploader/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -335,9 +370,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HotsReplayUploader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HotsReplayUploader/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -396,6 +436,7 @@
 				C03B276E1ADA5D92002FA5D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C03B276F1ADA5D92002FA5D6 /* Build configuration list for PBXNativeTarget "HotsReplayUploaderTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +445,7 @@
 				C03B27711ADA5D92002FA5D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
