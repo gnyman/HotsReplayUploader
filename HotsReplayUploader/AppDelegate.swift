@@ -142,8 +142,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func watchForReplays() {
         var	queue	=	dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
-        monitor	=	FileSystemEventMonitor(pathsToWatch: ["~/Library/Application Support/Blizzard/".stringByExpandingTildeInPath], latency: 1, watchRoot: false, queue: queue, callback: handleFileEvent)
+        monitor	=	FileSystemEventMonitor(pathsToWatch: [blizzardAppSuppPath], latency: 1, watchRoot: false, queue: queue, callback: handleFileEvent)
         println("Watching \(blizzardAppSuppPath)")
+        self.textLog.stringValue = self.textLog.stringValue + "\nWatching the replay folder for changes..."
     }
     
     func scanForReplays() {
