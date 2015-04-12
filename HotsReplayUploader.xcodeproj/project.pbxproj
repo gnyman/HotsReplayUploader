@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C03B27581ADA5D92002FA5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B27571ADA5D92002FA5D6 /* AppDelegate.swift */; };
+		C03B275A1ADA5D92002FA5D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03B27591ADA5D92002FA5D6 /* Images.xcassets */; };
+		C03B275D1ADA5D92002FA5D6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C03B275B1ADA5D92002FA5D6 /* MainMenu.xib */; };
+		C03B27691ADA5D92002FA5D6 /* HotsReplayUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B27681ADA5D92002FA5D6 /* HotsReplayUploaderTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C03B27631ADA5D92002FA5D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03B274A1ADA5D92002FA5D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C03B27511ADA5D92002FA5D6;
+			remoteInfo = HotsReplayUploader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C03B27521ADA5D92002FA5D6 /* HotsReplayUploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotsReplayUploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03B27561ADA5D92002FA5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C03B27571ADA5D92002FA5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C03B27591ADA5D92002FA5D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C03B275C1ADA5D92002FA5D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C03B27621ADA5D92002FA5D6 /* HotsReplayUploaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotsReplayUploaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03B27671ADA5D92002FA5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C03B27681ADA5D92002FA5D6 /* HotsReplayUploaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsReplayUploaderTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C03B274F1ADA5D92002FA5D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03B275F1ADA5D92002FA5D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C03B27491ADA5D92002FA5D6 = {
+			isa = PBXGroup;
+			children = (
+				C03B27541ADA5D92002FA5D6 /* HotsReplayUploader */,
+				C03B27651ADA5D92002FA5D6 /* HotsReplayUploaderTests */,
+				C03B27531ADA5D92002FA5D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C03B27531ADA5D92002FA5D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C03B27521ADA5D92002FA5D6 /* HotsReplayUploader.app */,
+				C03B27621ADA5D92002FA5D6 /* HotsReplayUploaderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C03B27541ADA5D92002FA5D6 /* HotsReplayUploader */ = {
+			isa = PBXGroup;
+			children = (
+				C03B27571ADA5D92002FA5D6 /* AppDelegate.swift */,
+				C03B27591ADA5D92002FA5D6 /* Images.xcassets */,
+				C03B275B1ADA5D92002FA5D6 /* MainMenu.xib */,
+				C03B27551ADA5D92002FA5D6 /* Supporting Files */,
+			);
+			path = HotsReplayUploader;
+			sourceTree = "<group>";
+		};
+		C03B27551ADA5D92002FA5D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C03B27561ADA5D92002FA5D6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C03B27651ADA5D92002FA5D6 /* HotsReplayUploaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				C03B27681ADA5D92002FA5D6 /* HotsReplayUploaderTests.swift */,
+				C03B27661ADA5D92002FA5D6 /* Supporting Files */,
+			);
+			path = HotsReplayUploaderTests;
+			sourceTree = "<group>";
+		};
+		C03B27661ADA5D92002FA5D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C03B27671ADA5D92002FA5D6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C03B27511ADA5D92002FA5D6 /* HotsReplayUploader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C03B276C1ADA5D92002FA5D6 /* Build configuration list for PBXNativeTarget "HotsReplayUploader" */;
+			buildPhases = (
+				C03B274E1ADA5D92002FA5D6 /* Sources */,
+				C03B274F1ADA5D92002FA5D6 /* Frameworks */,
+				C03B27501ADA5D92002FA5D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HotsReplayUploader;
+			productName = HotsReplayUploader;
+			productReference = C03B27521ADA5D92002FA5D6 /* HotsReplayUploader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C03B27611ADA5D92002FA5D6 /* HotsReplayUploaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C03B276F1ADA5D92002FA5D6 /* Build configuration list for PBXNativeTarget "HotsReplayUploaderTests" */;
+			buildPhases = (
+				C03B275E1ADA5D92002FA5D6 /* Sources */,
+				C03B275F1ADA5D92002FA5D6 /* Frameworks */,
+				C03B27601ADA5D92002FA5D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C03B27641ADA5D92002FA5D6 /* PBXTargetDependency */,
+			);
+			name = HotsReplayUploaderTests;
+			productName = HotsReplayUploaderTests;
+			productReference = C03B27621ADA5D92002FA5D6 /* HotsReplayUploaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C03B274A1ADA5D92002FA5D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Gabriel N";
+				TargetAttributes = {
+					C03B27511ADA5D92002FA5D6 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					C03B27611ADA5D92002FA5D6 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = C03B27511ADA5D92002FA5D6;
+					};
+				};
+			};
+			buildConfigurationList = C03B274D1ADA5D92002FA5D6 /* Build configuration list for PBXProject "HotsReplayUploader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C03B27491ADA5D92002FA5D6;
+			productRefGroup = C03B27531ADA5D92002FA5D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C03B27511ADA5D92002FA5D6 /* HotsReplayUploader */,
+				C03B27611ADA5D92002FA5D6 /* HotsReplayUploaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C03B27501ADA5D92002FA5D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03B275A1ADA5D92002FA5D6 /* Images.xcassets in Resources */,
+				C03B275D1ADA5D92002FA5D6 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03B27601ADA5D92002FA5D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C03B274E1ADA5D92002FA5D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03B27581ADA5D92002FA5D6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03B275E1ADA5D92002FA5D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03B27691ADA5D92002FA5D6 /* HotsReplayUploaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C03B27641ADA5D92002FA5D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C03B27511ADA5D92002FA5D6 /* HotsReplayUploader */;
+			targetProxy = C03B27631ADA5D92002FA5D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C03B275B1ADA5D92002FA5D6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C03B275C1ADA5D92002FA5D6 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C03B276A1ADA5D92002FA5D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C03B276B1ADA5D92002FA5D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C03B276D1ADA5D92002FA5D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HotsReplayUploader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C03B276E1ADA5D92002FA5D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HotsReplayUploader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C03B27701ADA5D92002FA5D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HotsReplayUploaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HotsReplayUploader.app/Contents/MacOS/HotsReplayUploader";
+			};
+			name = Debug;
+		};
+		C03B27711ADA5D92002FA5D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HotsReplayUploaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HotsReplayUploader.app/Contents/MacOS/HotsReplayUploader";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C03B274D1ADA5D92002FA5D6 /* Build configuration list for PBXProject "HotsReplayUploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C03B276A1ADA5D92002FA5D6 /* Debug */,
+				C03B276B1ADA5D92002FA5D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C03B276C1ADA5D92002FA5D6 /* Build configuration list for PBXNativeTarget "HotsReplayUploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C03B276D1ADA5D92002FA5D6 /* Debug */,
+				C03B276E1ADA5D92002FA5D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C03B276F1ADA5D92002FA5D6 /* Build configuration list for PBXNativeTarget "HotsReplayUploaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C03B27701ADA5D92002FA5D6 /* Debug */,
+				C03B27711ADA5D92002FA5D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C03B274A1ADA5D92002FA5D6 /* Project object */;
+}
