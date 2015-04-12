@@ -133,7 +133,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             !NSFileManager.defaultManager().fileExistsAtPath(uploadedIndicator)
             ) {
                 println("Would upload \(absolutePath)")
-                //uploadFile(path, fileName: fileName)
+                uploadFile(path, fileName: fileName)
         } else {
             //println("File \(absolutePath) does not exist or already upladed")
         }
