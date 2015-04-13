@@ -16,14 +16,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var textLog: NSTextField!
 
     let blizzardAppSuppPath:String = "~/Library/Application Support/Blizzard/".stringByExpandingTildeInPath
-    
+    var appStorage =  NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationSupportDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false, error: nil)!.path! + "/KonsultbyraGN/Hotsuploader/Replays"
     var	monitor	=	nil as FileSystemEventMonitor?
-    
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         self.textLog.stringValue = "Initialized HotsReplayUploader..."
         let operationQueue = NSOperationQueue()
+        println(appStorage)
         operationQueue.addOperationWithBlock() {
+            var error : NSError?
+            NSFileManager.defaultManager().createDirectoryAtPath(self.appStorage, withIntermediateDirectories: true, attributes: nil, error: &error)
+            if (error != nil) {
+                self.textLog.stringValue = "Error could not create app-storage, things won't work"
+            }
             self.scanForReplays()
             self.watchForReplays()
         }
@@ -96,7 +102,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             println("Pinged hotslogs, got back \(success)")
             // Create the upload indicator
-            let uploadedIndicator = "\(path)/.hotslogUploaded_\(fileName)"
+            let uploadedIndicator = "\(self.appStorage)/.hotslogUploaded_\(fileName)"
             NSFileManager.defaultManager().createFileAtPath(uploadedIndicator, contents: nil, attributes: nil)
             self.textLog.stringValue = self.textLog.stringValue + "\nUploaded \(fileName)"
         });
@@ -127,7 +133,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //println("Failed basic checks for \(absolutePath)")
                 return false
         }
-        let uploadedIndicator = "\(path)/.hotslogUploaded_\(fileName)"
+        let uploadedIndicator = "\(appStorage)/.hotslogUploaded_\(fileName)"
         if (
             NSFileManager.defaultManager().fileExistsAtPath(absolutePath) &&
             !NSFileManager.defaultManager().fileExistsAtPath(uploadedIndicator)
