@@ -111,7 +111,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         task.resume()
         return true
     }
-
+    
     func uploadHeroesGG(path: String, fileName:String) -> Bool {
         let fullPath = NSURL.fileURLWithPath(path + "/" + fileName)
         if fullPath == nil {
