@@ -112,6 +112,52 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
+    func uploadHeroesGG(path: String, fileName:String) -> Bool {
+        let fullPath = NSURL.fileURLWithPath(path + "/" + fileName)
+        if fullPath == nil {
+            return false
+        }
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://upload.hero.gg/ajax/upload-replay?from=hotsreplayuploader")!)
+        request.HTTPMethod = "POST"
+        var nsurlConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        
+        
+        // Multipart/form-data uploading based on https://medium.com/@creativewithin/uploading-a-file-in-swift-via-post-multipart-form-data-93dd1001f9e5
+        let boundaryConstant = "Boundary-7MA4YWxkTLLu0UIW";
+        let contentType = "multipart/form-data; boundary=" + boundaryConstant
+        request.setValue(contentType, forHTTPHeaderField: "Content-Type")
+        let fieldName = "file"
+        let mimeType = "application/octet-stream"
+        
+        // Set data
+        var error: NSError?
+        var replayDataString = NSData(contentsOfFile: "\(path)/\(fileName)")!
+        var dataString:NSMutableData = "--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.mutableCopy() as! NSMutableData
+        dataString.appendData("Content-Disposition: form-data; name=\"\(fieldName)\"; filename=\"\(fileName)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        dataString.appendData("Content-Type: \(mimeType)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        dataString.appendData(replayDataString)
+        dataString.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        dataString.appendData("--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        var session = NSURLSession(configuration: nsurlConfiguration, delegate: nil, delegateQueue: nil)
+        var task = session.uploadTaskWithRequest(request, fromData:dataString, completionHandler: {data, response, error in
+            //println("Hero.gg response")
+            //println(response)
+            //println(error)
+            //println(NSString(data:data, encoding: NSUTF8StringEncoding))
+            if(response != nil && error == nil) {
+                println("Seemed to succeed, creating uploadedIndicator")
+                let uploadedIndicator = "\(self.appStorage)/.heroggUploaded_\(fileName)"
+                NSFileManager.defaultManager().createFileAtPath(uploadedIndicator, contents: nil, attributes: nil)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.textLog.string = self.textLog.string! + "\nHero.gg: Uploaded \(fileName)"
+                }
+            }
+        });
+        task.resume()
+        return true
+    }
+
     func handleFileEvent(events: [FileSystemEvent]) -> () {
         dispatch_async(dispatch_get_main_queue()) {
             println(events)
@@ -129,7 +175,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // and that it's not a "uploaded-indicator"
         if (
             !fileName.lowercaseString.hasSuffix(".stormreplay") ||
-            fileName.rangeOfString(".hotslogUploaded_") != nil ||
+            fileName.rangeOfString("Uploaded_") != nil ||
             path.lastPathComponent.lowercaseString != "multiplayer"
             ) {
                 //println("Failed basic checks for \(absolutePath)")
@@ -142,6 +188,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             ) {
                 println("Would upload \(absolutePath)")
                 uploadFile(path, fileName: fileName)
+        } else {
+            //println("File \(absolutePath) does not exist or already upladed")
+        }
+        
+        // Also upload to hero.gg
+        let heroggUploadedIndicator = "\(appStorage)/.heroggUploaded_\(fileName)"
+        if (
+            NSFileManager.defaultManager().fileExistsAtPath(absolutePath) &&
+                !NSFileManager.defaultManager().fileExistsAtPath(heroggUploadedIndicator)
+            ) {
+                println("Would upload to hero.gg \(absolutePath)")
+                uploadHeroesGG(path, fileName: fileName)
         } else {
             //println("File \(absolutePath) does not exist or already upladed")
         }
