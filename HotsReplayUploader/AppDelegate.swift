@@ -13,7 +13,7 @@ import EonilFileSystemEvents
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-    @IBOutlet var textLog: NSTextField!
+    @IBOutlet var textLog: NSTextView!
 
     let blizzardAppSuppPath:String = "~/Library/Application Support/Blizzard/".stringByExpandingTildeInPath
     var appStorage =  NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationSupportDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false, error: nil)!.path! + "/KonsultbyraGN/Hotsuploader/Replays"
@@ -21,14 +21,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        self.textLog.stringValue = "Initialized HotsReplayUploader..."
+        self.textLog.string = "Initialized HotsReplayUploader..."
         let operationQueue = NSOperationQueue()
         println(appStorage)
         operationQueue.addOperationWithBlock() {
             var error : NSError?
             NSFileManager.defaultManager().createDirectoryAtPath(self.appStorage, withIntermediateDirectories: true, attributes: nil, error: &error)
             if (error != nil) {
-                self.textLog.stringValue = "Error could not create app-storage, things won't work"
+                self.textLog.string = "Error could not create app-storage, things won't work"
             }
             self.scanForReplays()
             self.watchForReplays()
@@ -98,13 +98,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             var success = String(contentsOfURL: hotslogPingUrl!, encoding: NSUTF8StringEncoding, error: &pingError)
             if (pingError != nil) {
                 println("Error pinging hotslogs, error was\(pingError?.description)")
-                self.textLog.stringValue = self.textLog.stringValue + "\nFailed to ask hotslogs to process \(fileName), will try again later"
+                self.textLog.string = self.textLog.string! + "\nFailed to ask hotslogs to process \(fileName), will try again later"
             }
             println("Pinged hotslogs, got back \(success)")
             // Create the upload indicator
             let uploadedIndicator = "\(self.appStorage)/.hotslogUploaded_\(fileName)"
             NSFileManager.defaultManager().createFileAtPath(uploadedIndicator, contents: nil, attributes: nil)
-            self.textLog.stringValue = self.textLog.stringValue + "\nUploaded \(fileName)"
+            dispatch_async(dispatch_get_main_queue()) {
+                self.textLog.string = self.textLog.string! + "\nHotslogs: Uploaded \(fileName)"
+            }
         });
         task.resume()
         return true
@@ -150,7 +152,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var	queue	=	dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
         monitor	=	FileSystemEventMonitor(pathsToWatch: [blizzardAppSuppPath], latency: 1, watchRoot: false, queue: queue, callback: handleFileEvent)
         println("Watching \(blizzardAppSuppPath)")
-        self.textLog.stringValue = self.textLog.stringValue + "\nWatching the replay folder for changes..."
+        self.textLog.string = self.textLog.string! + "\nWatching the replay folder for changes..."
     }
     
     func scanForReplays() {
@@ -160,7 +162,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let path = "\(blizzardAppSuppPath)/\(element)"
             processFile(path)
         }
-        self.textLog.stringValue = self.textLog.stringValue + "\nScanned the replay folder for replays..."
+        self.textLog.string = self.textLog.string! + "\nScanned the replay folder for replays..."
     }
 
 }
