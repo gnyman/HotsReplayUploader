@@ -8,6 +8,7 @@
 
 import Cocoa
 import EonilFileSystemEvents
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -18,8 +19,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let blizzardAppSuppPath:String = "~/Library/Application Support/Blizzard/".stringByExpandingTildeInPath
     var appStorage =  NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationSupportDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false, error: nil)!.path! + "/KonsultbyraGN/Hotsuploader/Replays"
     var	monitor	=	nil as FileSystemEventMonitor?
+    
+    var statusBar = NSStatusBar.systemStatusBar()
+    var statusBarItem : NSStatusItem = NSStatusItem()
+    var menu : NSMenu = NSMenu()
+    var menuItemShow : NSMenuItem = NSMenuItem()
+    var menuItemExit: NSMenuItem = NSMenuItem()
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        
         // Insert code here to initialize your application
         self.textLog.string = "Initialized HotsReplayUploader..."
         let operationQueue = NSOperationQueue()
@@ -221,6 +229,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             processFile(path)
         }
         self.textLog.string = self.textLog.string! + "\nScanned the replay folder for replays..."
+    }
+    
+    override func awakeFromNib() {
+        createStatusBar()
+    }
+    
+    func createStatusBar() {
+        // Add the status bar item
+        statusBarItem = statusBar.statusItemWithLength(-1)
+        statusBarItem.menu = menu
+        statusBarItem.image = NSImage(named: "MenuIcon")
+        //statusBarItem.action = Selector("setWindowVisible:")
+        
+        menuItemShow.title = "Show main window"
+        menuItemShow.action = Selector("setWindowVisible:")
+        
+        menuItemExit.title = "Quit HotsReplayUploader"
+        menuItemExit.action = Selector("terminate:")
+        
+        menu.addItem(menuItemShow)
+        menu.addItem(menuItemExit)
+    }
+    
+    func setWindowVisible(sender: AnyObject) {
+        //self.window!.orderFront(self)
+        self.window!.orderFrontRegardless()
     }
 
 }
